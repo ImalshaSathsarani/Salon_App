@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { Text, View } from "react-native";
+import {  View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import clsx from "clsx";
 
@@ -86,6 +86,11 @@ export default function _Layout() {
             
          }}
         />
+        <Tabs.Screen 
+          name= "service"
+          options={{
+            href:null
+          }} />
     </Tabs>
   );
 }
