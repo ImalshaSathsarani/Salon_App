@@ -117,8 +117,8 @@ export default function Bookings() {
         ))}
 
         <View className = "flex-row items-center justify-center w-4/5 space-x-4">
-          <TouchableOpacity><Feather name ="chevron-left" size={24} color="accent" /></TouchableOpacity>
-          <TouchableOpacity className="ml-10"><Feather name ="chevron-right" size={24} color="accent" /></TouchableOpacity>
+          <TouchableOpacity><Feather name ="chevron-left" size={24} color="#000000" /></TouchableOpacity>
+          <TouchableOpacity className="ml-10"><Feather name ="chevron-right" size={24} color="#000000" /></TouchableOpacity>
           
         </View>
 
