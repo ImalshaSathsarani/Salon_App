@@ -12,8 +12,8 @@ export default function _Layout() {
          tabBarStyle: {
             position:"absolute",
             bottom:0,
-            left:20,
-            right: 20,
+            left:0,
+            right: 0,
             height: 70,
             backgroundColor: "#DFD0B8",
             borderRadius: 10,
