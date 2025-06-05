@@ -1,8 +1,9 @@
 import { Feather } from "@expo/vector-icons";
 import { Link } from "expo-router";
 import { useState } from "react";
-import { Image, Modal, Text, TouchableOpacity, View } from "react-native";
+import { Dimensions, Image, Modal, Text, TouchableOpacity, View } from "react-native";
 
+const {width, height} =Dimensions.get("window");
 export default function MyBookings() {
 
   const bookings = [
@@ -36,7 +37,13 @@ export default function MyBookings() {
           {selectedBooking && (
             <>
             <View className= "flex-row  justify-between w-full ">
-               <Image source = {selectedBooking.icon} className = "w-8 h-8 mb-4 ml-5" resizeMode="contain"/>
+               <Image 
+                 source = {selectedBooking.icon} className = " mb-4 ml-5" 
+                 resizeMode="contain"
+                 style={{
+                  width: width*0.075,
+                  height: width*0.075
+                 }}/>
                <Text className="text-1xl mb-1 ">{selectedBooking.title}</Text>
                <View className= "w-6"></View>
             </View>
@@ -61,7 +68,7 @@ export default function MyBookings() {
            
 
             <TouchableOpacity
-              className="bg-[#501728] px-6 py-2 rounded-full mt-3"
+              className="bg-[#501728] px-6 py-2 rounded-full"
               onPress = {()=>{
                 setModalVisible(false);
               }} >
@@ -101,7 +108,13 @@ export default function MyBookings() {
           }}>
 
             <View className = "flex-row items-center justify-between">
-              <Image source ={booking.icon} className= "w-12 h-12 mt-3" resizeMode="contain"/>
+              <Image source ={booking.icon} 
+              
+              resizeMode="contain"
+              style = {{
+                width: width*0.1,
+                height: height*0.1,
+              }}/>
               <View className= "flex-1 ml-2">
                 <Text className= "text-xl text-accent font-semibold">{booking.title}</Text>
                 <Text className = " text-sm text-secondary mt-2">{booking.date} - {booking.time}</Text>

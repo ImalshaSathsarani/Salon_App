@@ -1,41 +1,70 @@
 import { Feather } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Dimensions, Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
-
+const { width, height} = Dimensions.get("window");
 export default function Service() {
     const router = useRouter();
   return (
-    <View
-      className="flex-1  items-center bg-primary pt-5"
-    >   
-       
-       <View className="w-full relative">
+    <>
+    
+     <View className="w-full relative bg-primary">
          <Image 
          source={require('../../assets/images/Manicure.jpg')}  resizeMode="cover" 
-         className="h-[250px] w-full rounded-b-3xl"
+         style={{
+           width: width,
+           height: height*0.36,
+           borderBottomLeftRadius: 24,
+           borderBottomRightRadius:24,
+         }}
          />
 
          <TouchableOpacity 
-           className= "absolute top-5 left-4 bg-transparent p-2 rounded-full"
-           onPress ={()=>{router.back()}} >
+          
+           onPress ={()=>{router.back()}}
+           style ={{
+            position: "absolute",
+            top: height * 0.03,
+            left: width * 0.04,
+            padding: 8,
+            backgroundColor: "transparent",
+            borderRadius: 100,
+           }} >
             <Feather name="arrow-left" size={24} color="#000000"/>
            </TouchableOpacity>
 
        </View>
+    
+    
+    <SafeAreaView className = "flex-1 bg-primary">
+      <ScrollView contentContainerStyle = {{flexGrow:1,alignItems:"center"}}>
+         <View
+      className="flex-1  items-center bg-primary pt-5"
+    >   
+       
+      
         
-         <View className = " w-full  flex-row justify-end mt-4">
-            <Text className = "text-4xl font-bold text-accent mr-6">Manicure</Text>
+         <View className = " w-full  flex-row justify-end ">
+            <Text className = "text-4xl font-bold text-accent mr-8">Manicure</Text>
            
          </View>
-         <View className = "w-full flex-row justify-end mt 2">
-             <Text className= "text-base text-accent mt-1 mr-6">
+         <View className = "w-full flex-row justify-end ">
+             <Text className= "text-base text-accent mt-1 mr-8">
                 30-45 min &nbsp; | &nbsp; LKR 1500
             </Text>
          </View>
        
 
-          <View className = "w-[300px]  bg-secondary rounded-xl mt-3 px-5 py-5 ">
+          <View className = "bg-secondary mr-1"
+            style ={{
+              width: width*0.85,
+              paddingVertical: height*0.03,
+              paddingHorizontal: width*0.05,
+              borderRadius: 16,
+              marginTop:16,
+
+
+            }}>
               <Text className="text-base leading-5 text-accent ">
                 Treat your hands to our Classic Manicure – a relaxing and rejuvenating experience that leaves your nails looking clean, shaped, and polished. {"\n\n"}
 
@@ -55,12 +84,22 @@ export default function Service() {
 
               <View className ="flex-row justify-between items center mt-6">
                 <View className="flex-1 h-[0px] bg-accent border mt-3"></View>
-                <Image source = { require('../../assets/icons/makeupBrushes.png')} className= "w-6 h-6"/>
+                <Image 
+                 source = { require('../../assets/icons/makeupBrushes.png')} 
+                 style ={{
+                  width: width* 0.06,
+                  height: width*0.06,
+                  marginHorizontal: 8,
+                 }}/>
                 <View className="flex-1 h-[0px] bg-accent border mt-3"></View>
                  
               </View>
           </View>
       
     </View>
+      </ScrollView>
+    </SafeAreaView>
+   
+    </>
   );
 }
