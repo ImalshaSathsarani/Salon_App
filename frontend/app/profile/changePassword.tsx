@@ -1,20 +1,25 @@
 import { Feather } from "@expo/vector-icons";
 import { Link } from "expo-router";
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Dimensions, Image, SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native";
 
+
+const { width,height } = Dimensions.get("window");
 export default function ChangePassword() {
   return (
-    <View
-      className="flex-1 pt-16 items-center bg-primary"
+    <>
+    <SafeAreaView className = "flex-1 bg-primary">
+      <ScrollView contentContainerStyle={{flexGrow: 1}}>
+        <View
+      className="flex-1 pt-12 px-4 items-center bg-primary"
     >
-        <View className = " flex-row justify-between items-center w-full px-4">
+        <View className = " flex-row justify-between items-center w-full mb-4">
             <Link href = "/profile" asChild>
             <TouchableOpacity className = "w-12 h-12 rounded-full bg-secondary justify-center items-center">
                <Feather name="arrow-left" size = {24} color = "#000000"/>
             </TouchableOpacity>
             </Link>
 
-        <Text className="text-4xl  text-accent ml-5">Change Password</Text>
+        <Text className="text-4xl md:text-3xl text-accent ml-5">Change Password</Text>
         <View className = "w-12 h-12"/>
 
         </View>
@@ -22,7 +27,15 @@ export default function ChangePassword() {
      {/* Profile Image */}
                 
             
-        <Image source = {require('../../assets/images/profile.jpg')} className = "w-32 h-32 rounded-full border-4 border-accent mt-4"/>
+        <Image 
+          source = {require('../../assets/images/profile.jpg')} 
+          className = " rounded-full border-4 border-accent mt-4"
+            style={{
+             width: width*0.3,
+             height: width*0.3,
+             marginTop: 20,
+          }}
+          />
         
     {/* User Info Section */}
         
@@ -36,19 +49,22 @@ export default function ChangePassword() {
               <View className = "w-4/5 mt-4 border border-secondary rounded-xl px-4 py-2">
                <Text className= "text-secondary">Current Password</Text>
                <TextInput
-                   placeholder = ""/>
+                   placeholder = ""
+                   className ="text-accent"/>
            </View>
 
            <View className = "w-4/5 mt-4 border border-secondary rounded-xl px-4 py-2">
                <Text className= "text-secondary">New Password</Text>
                <TextInput
-                   placeholder = ""/>
+                   placeholder = ""
+                   className ="text-accent"/>
            </View>
 
            <View className = "w-4/5 mt-4 border border-secondary rounded-xl px-4 py-2">
                <Text className= "text-secondary">Confirm New Password</Text>
                <TextInput
-                   placeholder = ""/>
+                   placeholder = ""
+                   className ="text-accent"/>
            </View>
 
 
@@ -62,5 +78,10 @@ export default function ChangePassword() {
         </TouchableOpacity>
 
     </View>
+      </ScrollView>
+    </SafeAreaView>
+    
+    
+    </>
   );
 }
