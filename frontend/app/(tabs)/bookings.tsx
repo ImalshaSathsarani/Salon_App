@@ -1,10 +1,11 @@
 import { Feather } from "@expo/vector-icons";
-import { Link } from "expo-router";
+import {useRouter} from "expo-router";
 import { ScrollView, Text, TextInput, TouchableOpacity, View ,Dimensions,
   useWindowDimensions,
   SafeAreaView} from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
+
 
 export default function Bookings() {
 
@@ -13,6 +14,9 @@ export default function Bookings() {
 
   const containerWidth = width * 0.9; 
   const spacerSize = width * 0.1;
+
+  const router = useRouter();
+
   return (
 
       <SafeAreaView style={{ flex: 1, backgroundColor: "#F0F0F0" }}>
@@ -23,12 +27,11 @@ export default function Bookings() {
           showsVerticalScrollIndicator={false}
       >
           <View className = "flex-row items-center justify-between pl-5 w-full">
-              <Link href="/profile" asChild>
-              <TouchableOpacity className = "w-12 h-12 rounded-full bg-secondary justify-center items-center">
+              <TouchableOpacity className = "w-12 h-12 rounded-full bg-secondary justify-center items-center"
+              onPress={()=>router.back()}>
                   <Feather name="arrow-left" size={24} color="#000000"/>
               </TouchableOpacity>
-              </Link>
-             <Text className="text-5xl  text-accent ">Booking Form</Text>
+             <Text className="text-4xl  text-accent ">Booking Form</Text>
              <View className = "w-12 h-12" /> {/* Dummy spacer to balance the row layout */}
           </View>
 
@@ -87,12 +90,12 @@ export default function Bookings() {
           <View className = "w-4/5 mt-5 bg-secondary h-[1px]"/>
   
           <TouchableOpacity
-          className = "mt-4 px-12 py-3  rounded-full"
-          style={{ backgroundColor: '#3A0519' }}>
-               <Text className = "text-white text-2xl font-semibold">Submit</Text>
-  
+            className="mt-4 px-12 py-3 rounded-full"
+            style={{ backgroundColor: '#3A0519' }}
+            onPress={() => router.push("/paymentMethod")}
+          >
+          <Text className="text-white text-2xl font-semibold">Submit</Text>
           </TouchableOpacity>
-       
       </ScrollView>
       </SafeAreaView>
     );
