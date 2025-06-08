@@ -13,10 +13,11 @@ export default function PaymentConfirmation() {
         showsVerticalScrollIndicator={false}
     >
         <View className = "flex-row items-center justify-between pl-5 w-full">
-            <TouchableOpacity className = "w-12 h-12 rounded-full bg-secondary justify-center items-center"
-            onPress={()=>router.back()}>
+            <Link href="/paymentMethod" asChild>
+            <TouchableOpacity className = "w-12 h-12 rounded-full bg-secondary justify-center items-center">
                 <Feather name="arrow-left" size={24} color="#000000"/>
             </TouchableOpacity>
+            </Link>
            <Text className="text-4xl  text-accent ">Payment Confirmation</Text>
            <View className = "w-12 h-12" /> {/* Dummy spacer to balance the row layout */}
         </View>
