@@ -43,6 +43,20 @@ export default function RootLayout() {
       }} 
       />
 
+       <Stack.Screen 
+      name = "paymentMethod"
+      options ={{
+        headerShown: false,
+      }} 
+      />
+
+      <Stack.Screen 
+      name = "paymentConfirmation"
+      options ={{
+        headerShown: false,
+      }} 
+      />
+
 
   </Stack>;
 }
