@@ -91,6 +91,19 @@ export default function _Layout() {
           options={{
             href:null
           }} />
+
+          <Tabs.Screen 
+          name= "paymentMethod"
+          options={{
+            href:null
+          }} />
+
+          <Tabs.Screen 
+          name= "paymentConfirmation"
+          options={{
+            href:null
+          }} />
+          
     </Tabs>
   );
 }
